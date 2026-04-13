@@ -1,0 +1,72 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {
+      colors: {
+        "on-tertiary-fixed": "#001e2f",
+        "surface": "#f7f9fb",
+        "surface-container-low": "#f2f4f6",
+        "on-surface": "#191c1e",
+        "primary-fixed": "#e2dfff",
+        "secondary-fixed-dim": "#4edea3",
+        "inverse-surface": "#2d3133",
+        "on-secondary-fixed": "#002113",
+        "surface-variant": "#e0e3e5",
+        "surface-bright": "#f7f9fb",
+        "background": "#f7f9fb",
+        "on-error-container": "#93000a",
+        "on-primary-fixed": "#0f0069",
+        "outline": "#777584",
+        "secondary-fixed": "#6ffbbe",
+        "tertiary": "#003047",
+        "on-tertiary": "#ffffff",
+        "outline-variant": "#c8c4d5",
+        "secondary": "#006c49",
+        "tertiary-container": "#004768",
+        "inverse-on-surface": "#eff1f3",
+        "tertiary-fixed-dim": "#89ceff",
+        "on-tertiary-fixed-variant": "#004c6e",
+        "tertiary-fixed": "#c9e6ff",
+        "surface-container-highest": "#e0e3e5",
+        "on-primary-container": "#a9a7ff",
+        "surface-tint": "#544fc0",
+        "surface-dim": "#d8dadc",
+        "error": "#ba1a1a",
+        "primary-container": "#3730a3",
+        "secondary-container": "#6cf8bb",
+        "on-surface-variant": "#464553",
+        "on-background": "#191c1e",
+        "primary": "#1f108e",
+        "primary-fixed-dim": "#c3c0ff",
+        "inverse-primary": "#c3c0ff",
+        "surface-container-lowest": "#ffffff",
+        "on-primary-fixed-variant": "#3b35a7",
+        "error-container": "#ffdad6",
+        "on-secondary": "#ffffff",
+        "surface-container-high": "#e6e8ea",
+        "on-tertiary-container": "#3bb9fe",
+        "on-secondary-container": "#00714d",
+        "on-secondary-fixed-variant": "#005236",
+        "on-primary": "#ffffff",
+        "surface-container": "#eceef0",
+        "on-error": "#ffffff"
+      },
+      borderRadius: {
+        "DEFAULT": "0.25rem",
+        "lg": "0.5rem",
+        "xl": "1.5rem",
+        "full": "9999px"
+      },
+      fontFamily: {
+        "headline": ["Inter"],
+        "body": ["Inter"],
+        "label": ["Inter"]
+      }
+    },
+  },
+  plugins: [],
+}

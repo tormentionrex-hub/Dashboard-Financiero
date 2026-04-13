@@ -1,0 +1,25 @@
+{
+  "empresa": "Extreme Tech CR",
+  "slogan": "Tecnología, Gaming y Accesorios en Costa Rica",
+  "moneda": "USD",
+  "periodo": "Q1 2026",
+  "tiendas": 13,
+  "empleados": 178,
+  "sector": "Tecnología & Gaming",
+  "datos": [
+    { "mes": "Enero",   "ingresos": 920000, "costos": 510000, "gastos": 185000 },
+    { "mes": "Febrero", "ingresos": 870000, "costos": 480000, "gastos": 172000 },
+    { "mes": "Marzo",   "ingresos": 1050000, "costos": 545000, "gastos": 198000 },
+    { "mes": "Abril",   "ingresos": 780000,  "costos": 520000, "gastos": 210000 }
+  ],
+  "transacciones": [
+    { "id": 1, "descripcion": "Ventas laptops y gaming PCs",     "monto": 420000,  "tipo": null },
+    { "id": 2, "descripcion": "Compra inventario Intel & AMD",    "monto": -280000, "tipo": null },
+    { "id": 3, "descripcion": "Salarios equipo 178 empleados",   "monto": -125000, "tipo": null },
+    { "id": 4, "descripcion": "Inversión nueva tienda Escazú",   "monto": -95000,  "tipo": null },
+    { "id": 5, "descripcion": "Ventas accesorios y periféricos", "monto": 185000,  "tipo": null },
+    { "id": 6, "descripcion": "Pago renta 13 sucursales",        "monto": -62000,  "tipo": null },
+    { "id": 7, "descripcion": "Ingreso Extreme Outlet (remates)", "monto": 48000,  "tipo": null },
+    { "id": 8, "descripcion": "Compra equipos SmartHome",        "monto": -38000,  "tipo": null }
+  ]
+}

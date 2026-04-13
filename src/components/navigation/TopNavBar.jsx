@@ -15,7 +15,7 @@ export default function TopNavBar() {
   }, []);
 
   return (
-    <header className="fixed top-0 w-full z-50 cyber-glass border-b border-white/5 flex justify-between items-center px-10 h-16">
+    <header className="fixed top-0 w-full z-50 bg-transparent flex justify-between items-center px-10 h-16">
       <div className="flex items-center gap-10">
         <span ref={logoRef} className="text-2xl font-black text-white tracking-tighter flex items-center gap-2">
           <div className="w-2 h-2 bg-indigo-500 rounded-full animate-pulse shadow-[0_0_10px_rgba(99,102,241,0.8)]"></div>

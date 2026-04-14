@@ -26,3 +26,11 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Archivos de video/audio grandes — excluidos de git (usan demasiado espacio)
+*.mp4
+*.mp3
+*.mov
+*.avi
+*.webm
+src/images/backgroundDash.mp4

@@ -131,7 +131,7 @@ export default function HeroSection({ isPlaying, onToggle }) {
   // (helpers de aristas eliminados — causaban distorsión en las esquinas)
 
   return (
-    <section ref={container} className="relative bg-transparent flex flex-col md:flex-row items-center justify-between w-full gap-10 md:gap-4">
+    <section ref={container} className="relative bg-transparent flex flex-col md:flex-row items-start justify-between w-full gap-10 md:gap-4">
 
       {/* ══ TEXTO ══ */}
       <div className="flex-1 max-w-xl z-10 text-center md:text-left px-6 md:px-0">
@@ -139,14 +139,15 @@ export default function HeroSection({ isPlaying, onToggle }) {
           <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-pulse"></span>
           AIFinance_v2.0 — Sistema Activo
         </div>
-        <h1 className="hero-text text-5xl md:text-6xl xl:text-[5.5rem] font-black tracking-tighter leading-[0.88] mb-7 text-white drop-shadow-[0_5px_20px_rgba(0,0,0,0.7)]">
+        <h1 className="hero-text text-4xl md:text-5xl xl:text-[5rem] font-black tracking-tighter leading-[0.88] mb-8 text-white
+          drop-shadow-[0_8px_24px_rgba(99,102,241,0.45)]">
           SISTEMA DE{" "}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-300 via-cyan-300 to-indigo-400">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-300 via-cyan-200 to-indigo-400">
             INTELIGENCIA
           </span>{" "}
           NEURAL
         </h1>
-        <p className="hero-text text-base text-white/75 mb-10 leading-relaxed max-w-md font-medium">
+        <p className="hero-text text-base text-white/70 mb-10 leading-relaxed max-w-md font-medium">
           Arquitectura de análisis predictivo para la gestión de patrimonio en la era de la IA.{" "}
           <span className="text-indigo-300 font-bold">Evolución. Precisión. Poder.</span>
         </p>
@@ -179,7 +180,7 @@ export default function HeroSection({ isPlaying, onToggle }) {
       </div>
 
       {/* ══ TELÉFONO 3D SÓLIDO ══ */}
-      <div className="relative flex-shrink-0 flex items-center justify-center w-64 md:w-80"
+      <div className="relative flex-shrink-0 flex items-start justify-center w-64 md:w-80 self-start"
         style={{ perspective: "1000px", perspectiveOrigin: "50% 50%" }}
       >
         {/* Halo ambiental */}

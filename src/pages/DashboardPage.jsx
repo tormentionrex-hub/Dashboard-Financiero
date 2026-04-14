@@ -24,6 +24,7 @@ export default function DashboardPage() {
   const [cargando, setCargando] = useState(false);
   const [error, setError] = useState("");
   const [isPlaying, setIsPlaying] = useState(true);
+  const [sidebarOpen, setSidebarOpen] = useState(false);  // ← CERRADO por defecto
   const container = useRef();
 
   const kpis = calcularKPIs(financialData.datos);
@@ -69,18 +70,23 @@ export default function DashboardPage() {
         <TopNavBar />
         
         <div className="flex pt-16">
-          <SideNavBar />
+          <SideNavBar isOpen={sidebarOpen} onToggle={() => setSidebarOpen(o => !o)} />
           
-          <main className="flex-grow ml-72 transition-all duration-500">
-            {/* SECCIÓN HERO (TRANSPARENTE SOBRE EL VIDEO) */}
-            <div className="min-h-[calc(100vh-4rem)] flex items-center p-8 md:p-12">
+          {/* main: ya no se desplaza, el sidebar se superpone (overlap) */}
+          <main className="flex-grow transition-all duration-500 min-w-0">
+            {/* SECCIÓN HERO — items-start: el contenido ancla desde arriba, sin corte en pantallas pequeñas */}
+            <div className="relative z-20 min-h-[calc(100vh-4rem)] flex items-center px-8 md:px-16 py-12">
               <div className="anim-section w-full">
                  <HeroSection isPlaying={isPlaying} onToggle={() => setIsPlaying(!isPlaying)} />
               </div>
             </div>
 
-            {/* SECCIÓN DE DATOS - VIDEO BACKGROUND ANCHO COMPLETO */}
-            <div className="relative -ml-72 w-screen border-t border-white/5 overflow-hidden">
+            {/* SECCIÓN DE DATOS — solapa 64px: suficiente para el blend de color sin que el contenido suba */}
+            <div className="relative w-full overflow-hidden -mt-16">
+              {/* Gradiente de fusión: 160px de transición suave */}
+              <div className="absolute top-0 left-0 w-full h-40 z-[3] pointer-events-none"
+                style={{ background: 'linear-gradient(to bottom, #050506 0%, rgba(5,5,6,0.7) 50%, transparent 100%)' }}
+              ></div>
               {/* Video de fondo a 100% de pantalla — sin contar el header */}
               <video
                 src={backgroundDash}
@@ -93,8 +99,8 @@ export default function DashboardPage() {
               {/* Sobrecapa oscura para máxima legibilidad */}
               <div className="absolute inset-0 bg-black/50 z-[1] pointer-events-none"></div>
 
-              {/* Contenido: padding-left compensa el margen negativo para que quede alineado */}
-              <div className="relative z-10 pl-72 p-8 md:p-12 space-y-24">
+              {/* Contenido: padding compensa el video full-width */}
+              <div className="relative z-10 p-8 md:p-12 space-y-24">
                 <div className="anim-section"><MetricsGrid kpis={kpis} /></div>
                 <div className="anim-section"><FinancialChart onGenerar={handleGenerarAnalisis} cargando={cargando} /></div>
                 

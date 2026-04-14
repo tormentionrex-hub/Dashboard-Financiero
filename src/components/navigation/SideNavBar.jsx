@@ -2,102 +2,100 @@ import React, { useRef, useState, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { useGSAP } from "@gsap/react";
 
-export default function SideNavBar() {
+export default function SideNavBar({ isOpen, onToggle }) {
   const containerRef = useRef();
-  const arrowRef = useRef();
-  const sidebarRef = useRef();
-  const [isOpen, setIsOpen] = useState(true);
+  const arrowRef     = useRef();
+  const sidebarRef   = useRef();
+  const buttonRef    = useRef();   // ← ref para animar el botón con GSAP (sync perfecto)
   const [scrolled, setScrolled] = useState(false);
 
-  // Detectar scroll para cambiar opacidad
+  // Detectar scroll
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > window.innerHeight * 0.85);
-    };
+    const handleScroll = () => setScrolled(window.scrollY > window.innerHeight * 0.85);
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Animación de entrada inicial
+  // Posición inicial: ambos CERRADOS simultáneamente (sin animación)
+  useEffect(() => {
+    gsap.set(sidebarRef.current, { x: -288 });
+    gsap.set(buttonRef.current,  { left: 0 });
+    gsap.set(arrowRef.current,   { rotation: 180 }); // → indica "abrir"
+  }, []);
+
+  // Animar sidebar + botón con EXACTAMENTE la misma curva y duración → movimiento mutuo
+  useEffect(() => {
+    const DUR_OPEN  = 0.45;
+    const DUR_CLOSE = 0.42;
+    const EASE_OPEN  = "power3.out";
+    const EASE_CLOSE = "power3.in";
+
+    if (isOpen) {
+      // Abrir: sidebar entra desde izquierda, botón sigue pegado a su borde derecho
+      gsap.to(sidebarRef.current, { x: 0,   duration: DUR_OPEN,  ease: EASE_OPEN });
+      gsap.to(buttonRef.current,  { left: 288, duration: DUR_OPEN,  ease: EASE_OPEN });
+      gsap.to(arrowRef.current,   { rotation: 0,   duration: 0.35, ease: "back.out(2)" });
+    } else {
+      // Cerrar: sidebar sale hacia izquierda, botón regresa al borde de pantalla
+      gsap.to(sidebarRef.current, { x: -288, duration: DUR_CLOSE, ease: EASE_CLOSE });
+      gsap.to(buttonRef.current,  { left: 0,   duration: DUR_CLOSE, ease: EASE_CLOSE });
+      gsap.to(arrowRef.current,   { rotation: 180, duration: 0.35, ease: "back.out(2)" });
+    }
+  }, [isOpen]);
+
   useGSAP(() => {
     gsap.from(".side-item", {
-      opacity: 0,
-      x: -20,
-      stagger: 0.1,
-      duration: 0.8,
-      ease: "back.out(1.7)"
+      opacity: 0, x: -20, stagger: 0.08,
+      duration: 0.7, ease: "back.out(1.7)"
     });
-
-    // Pulso sutil en la flecha (loop)
+    // Pulso sutil en la flecha
     gsap.to(arrowRef.current, {
-      x: -2,
-      duration: 0.9,
-      repeat: -1,
-      yoyo: true,
-      ease: "sine.inOut"
+      x: -2, duration: 1.0, repeat: -1, yoyo: true, ease: "sine.inOut"
     });
   }, { scope: containerRef });
 
-  // Toggle: solo animamos el sidebar — el botón es hijo y se mueve solo
-  const handleToggle = () => {
-    const newState = !isOpen;
-    setIsOpen(newState);
-
-    const SIDEBAR_WIDTH = 288; // w-72 = 18rem = 288px
-
-    if (newState) {
-      // Abrir
-      gsap.to(sidebarRef.current, {
-        x: 0,
-        duration: 0.45,
-        ease: "power3.out"
-      });
-      gsap.to(arrowRef.current, {
-        rotation: 0,
-        duration: 0.4,
-        ease: "back.out(2)"
-      });
-    } else {
-      // Cerrar: el botón va con el sidebar porque es su hijo
-      gsap.to(sidebarRef.current, {
-        x: -SIDEBAR_WIDTH,
-        duration: 0.4,
-        ease: "power3.in"
-      });
-      gsap.to(arrowRef.current, {
-        rotation: 180,
-        duration: 0.4,
-        ease: "back.out(2)"
-      });
-    }
-  };
-
   return (
-    <div ref={containerRef} className="fixed top-16 left-0 z-40 h-[calc(100vh-4rem)]">
+    <div ref={containerRef}>
 
-      {/* Sidebar — el botón vive DENTRO para moverse junto */}
+      {/* ══ BOTÓN TOGGLE — animado por GSAP (mismo timing que sidebar) ══ */}
+      <button
+        ref={buttonRef}
+        onClick={onToggle}
+        title={isOpen ? 'Cerrar menú' : 'Abrir menú'}
+        style={{
+          position:  'fixed',
+          top:       '50%',
+          left:      '0px',          /* GSAP controla este valor */
+          transform: 'translateY(-50%)',
+          zIndex:    60,
+        }}
+        className="group flex items-center justify-center
+          w-10 h-24 rounded-r-3xl
+          bg-gradient-to-r from-indigo-700 via-indigo-600 to-indigo-500
+          hover:from-indigo-600 hover:via-indigo-500 hover:to-indigo-400
+          border-r-2 border-t-2 border-b-2 border-indigo-400/70
+          shadow-[6px_0_30px_rgba(99,102,241,0.85),0_0_18px_rgba(99,102,241,0.4)]
+          hover:shadow-[10px_0_45px_rgba(99,102,241,1),0_0_25px_rgba(99,102,241,0.6)]
+          transition-shadow duration-300"
+      >
+        <span
+          ref={arrowRef}
+          className="material-symbols-outlined text-white text-[26px] select-none
+            drop-shadow-[0_0_12px_rgba(255,255,255,1)]"
+        >
+          chevron_left
+        </span>
+      </button>
+
+      {/* ══ SIDEBAR — desliza desde la IZQUIERDA ══ */}
       <aside
         ref={sidebarRef}
-        className={`relative w-72 flex flex-col h-full border-r border-white/10 overflow-visible transition-colors duration-700 ${
+        className={`fixed top-16 left-0 w-72 flex flex-col h-[calc(100vh-4rem)] border-r border-white/10 overflow-hidden transition-colors duration-700 z-40 ${
           scrolled
-            ? 'bg-[#0a0a0f]/85 backdrop-blur-xl shadow-[4px_0_30px_rgba(0,0,0,0.6)]'
-            : 'bg-black/20 backdrop-blur-md'
+            ? 'bg-[#080810]/94 backdrop-blur-2xl shadow-[4px_0_40px_rgba(0,0,0,0.9)]'
+            : 'bg-[#05050f]/75 backdrop-blur-xl'
         }`}
       >
-        {/* ── Botón Toggle pegado al borde derecho del sidebar ── */}
-        <button
-          onClick={handleToggle}
-          className="absolute -right-5 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-indigo-600 hover:bg-indigo-400 border-2 border-indigo-400/60 shadow-[0_0_24px_rgba(99,102,241,0.7)] flex items-center justify-center z-50 transition-colors duration-200 group"
-          title={isOpen ? 'Cerrar menú' : 'Abrir menú'}
-        >
-          <span
-            ref={arrowRef}
-            className="material-symbols-outlined text-white text-xl select-none"
-          >
-            chevron_left
-          </span>
-        </button>
-
         {/* Perfil Neural */}
         <div className="p-8 border-b border-white/10 side-item">
           <div className="flex items-center gap-4 group cursor-pointer">
@@ -111,7 +109,7 @@ export default function SideNavBar() {
           </div>
         </div>
 
-        {/* Navegación Principal */}
+        {/* Navegación */}
         <nav className="flex-grow p-6 space-y-3">
           {[
             { icon: 'grid_view',            label: 'Resumen',    active: true },
@@ -124,19 +122,19 @@ export default function SideNavBar() {
               key={idx}
               className={`side-item flex items-center gap-4 p-4 rounded-2xl cursor-pointer transition-all border ${
                 item.active
-                  ? 'bg-indigo-500/20 text-white border-indigo-500/40 shadow-[0_0_20px_rgba(99,102,241,0.2)]'
-                  : 'text-white/60 hover:bg-white/10 hover:text-white border-transparent hover:border-white/10'
+                  ? 'bg-indigo-500/25 text-white border-indigo-500/50 shadow-[0_0_25px_rgba(99,102,241,0.25)]'
+                  : 'text-white/70 hover:bg-white/8 hover:text-white border-transparent hover:border-white/10'
               }`}
             >
-              <span className="material-symbols-outlined text-xl">{item.icon}</span>
-              <span className="text-[10px] font-black uppercase tracking-widest leading-none">{item.label}</span>
+              <span className="material-symbols-outlined text-2xl">{item.icon}</span>
+              <span className="text-[11px] font-bold uppercase tracking-widest leading-none">{item.label}</span>
             </div>
           ))}
         </nav>
 
-        {/* Footer del Sidebar */}
-        <div className="p-6 border-t border-white/10 side-item">
-          <div className="text-[8px] font-black text-white/40 uppercase tracking-[0.3em]">Protocolo_Neural_v2.4</div>
+        {/* Footer */}
+        <div className="p-8 border-t border-white/10 side-item">
+          <div className="text-[9px] font-black text-white/30 uppercase tracking-[0.4em]">Protocolo_Neural_v2.4</div>
         </div>
       </aside>
     </div>

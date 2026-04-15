@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { useGSAP } from "@gsap/react";
+import { useNavigate, useLocation } from 'react-router-dom';
 
 export default function SideNavBar({ isOpen, onToggle }) {
   const containerRef = useRef();
@@ -8,6 +9,8 @@ export default function SideNavBar({ isOpen, onToggle }) {
   const sidebarRef   = useRef();
   const buttonRef    = useRef();   // ← ref para animar el botón con GSAP (sync perfecto)
   const [scrolled, setScrolled] = useState(false);
+  const navigate  = useNavigate();
+  const location  = useLocation();
 
   // Detectar scroll
   useEffect(() => {
@@ -112,24 +115,28 @@ export default function SideNavBar({ isOpen, onToggle }) {
         {/* Navegación */}
         <nav className="flex-grow p-6 space-y-3">
           {[
-            { icon: 'grid_view',            label: 'Resumen',    active: true },
-            { icon: 'psychology',           label: 'Agentes IA'              },
-            { icon: 'notifications_active', label: 'Alertas_Int'             },
-            { icon: 'receipt_long',         label: 'Impuestos'               },
-            { icon: 'history',              label: 'Historial'               },
-          ].map((item, idx) => (
-            <div
-              key={idx}
-              className={`side-item flex items-center gap-4 p-4 rounded-2xl cursor-pointer transition-all border ${
-                item.active
-                  ? 'bg-indigo-500/25 text-white border-indigo-500/50 shadow-[0_0_25px_rgba(99,102,241,0.25)]'
-                  : 'text-white/70 hover:bg-white/8 hover:text-white border-transparent hover:border-white/10'
-              }`}
-            >
-              <span className="material-symbols-outlined text-2xl">{item.icon}</span>
-              <span className="text-[11px] font-bold uppercase tracking-widest leading-none">{item.label}</span>
-            </div>
-          ))}
+            { icon: 'grid_view',            label: 'Resumen',    route: '/'        },
+            { icon: 'psychology',           label: 'Agentes IA', route: '/agents'  },
+            { icon: 'notifications_active', label: 'Alertas_Int',route: null        },
+            { icon: 'receipt_long',         label: 'Impuestos',  route: null        },
+            { icon: 'history',              label: 'Historial',  route: null        },
+          ].map((item, idx) => {
+            const isActive = item.route && location.pathname === item.route;
+            return (
+              <div
+                key={idx}
+                onClick={() => item.route && navigate(item.route)}
+                className={`side-item flex items-center gap-4 p-4 rounded-2xl cursor-pointer transition-all border ${
+                  isActive
+                    ? 'bg-indigo-500/25 text-white border-indigo-500/50 shadow-[0_0_25px_rgba(99,102,241,0.25)]'
+                    : 'text-white/70 hover:bg-white/8 hover:text-white border-transparent hover:border-white/10'
+                } ${!item.route ? 'opacity-40 cursor-not-allowed' : ''}`}
+              >
+                <span className="material-symbols-outlined text-2xl">{item.icon}</span>
+                <span className="text-[11px] font-bold uppercase tracking-widest leading-none">{item.label}</span>
+              </div>
+            );
+          })}
         </nav>
 
         {/* Footer */}

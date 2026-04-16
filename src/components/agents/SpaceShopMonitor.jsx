@@ -128,7 +128,7 @@ export default function SpaceShopMonitor() {
                 The Space Shop — Monitor en Tiempo Real
               </h2>
               <p className="text-[10px] text-white/40 uppercase tracking-wider">
-                Agente de Inteligencia de Mercado · Gemini 2.0 Flash · {SPACE_SHOP_PRODUCTS.length} productos reales
+                ORION · Motor IA Local · {SPACE_SHOP_PRODUCTS.length} productos reales
               </p>
             </div>
           </div>

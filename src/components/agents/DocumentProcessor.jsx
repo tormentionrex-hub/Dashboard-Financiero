@@ -164,7 +164,7 @@ export default function DocumentProcessor() {
               Procesador de Documentos
             </h2>
             <p className="text-[10px] text-white/40 uppercase tracking-wider">
-              Agente de Inteligencia Documental · Gemini 2.0 Flash
+              ATLAS · Motor IA Local · Sin dependencia de API
             </p>
           </div>
         </div>

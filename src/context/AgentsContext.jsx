@@ -238,12 +238,21 @@ export function AgentsProvider({ children }) {
 
     try {
       const history = state.customer.messages.map(m => ({ role: m.role, text: m.text }));
-      const response = await sendMessage(history, text);
+      // Pasar datos de mercado de ORION para que NOVA pueda responder sobre ventas
+      const marketData = {
+        purchases: state.market.purchases,
+        stats:     state.market.stats,
+      };
+      // sendMessage retorna { text, engine, source }
+      const result = await sendMessage(history, text, marketData);
+      const responseText = typeof result === "string" ? result : result.text;
       const botMsg = {
         id:        Date.now() + 1,
         role:      "assistant",
-        text:      response,
-        timestamp: new Date()
+        text:      responseText,
+        engine:    result?.engine  || "local",
+        source:    result?.source  || null,
+        timestamp: new Date(),
       };
       dispatch({ type: "CHAT_ADD_MESSAGE", payload: botMsg });
     } catch (err) {
@@ -254,7 +263,9 @@ export function AgentsProvider({ children }) {
           id:        Date.now() + 1,
           role:      "assistant",
           text:      "Lo siento, tuve un problema al procesar tu mensaje. Por favor intenta de nuevo. 🔧",
-          timestamp: new Date()
+          engine:    "local",
+          source:    null,
+          timestamp: new Date(),
         }
       });
     } finally {

@@ -1,165 +1,242 @@
 // ─────────────────────────────────────────────────────────────────────────────
-//  THE SPACE SHOP — Productos reales extraídos de thespaceshop.com
-//  Precios en USD · Nombres originales en inglés (marca registrada)
+//  THE SPACE SHOP — Kennedy Space Center Official Store
+//  Datos reales extraídos de thespaceshop.com
+//  Empresa matriz: Delaware North | Merritt Island, FL 32953
+//  Teléfono: 1.800.621.9826 | Envío gratis en compras ≥ $75
 // ─────────────────────────────────────────────────────────────────────────────
 
-export const SPACE_SHOP_PRODUCTS = [
-
-  // ── MODELOS Y RÉPLICAS ────────────────────────────────────────────────────
-  { id: "MR001", name: "Executive Series Space Shuttle Full Stack Discovery 1:200 Model",   category: "Modelos",          price: 300.00, icon: "🚀", stock: 8  },
-  { id: "MR002", name: "Executive Series Saturn V Rocket 1:200 Model",                      category: "Modelos",          price: 350.00, icon: "🚀", stock: 5  },
-  { id: "MR003", name: "Executive Series Lunar Excursion Module 1:48 Model",                category: "Modelos",          price: 280.00, icon: "🌕", stock: 6  },
-  { id: "MR004", name: "Executive Series Command Module 1:48 Model",                        category: "Modelos",          price: 300.00, icon: "🛸", stock: 7  },
-  { id: "MR005", name: "Executive Series Space Shuttle Full Stack Endeavour 1:200 Model",   category: "Modelos",          price: 300.00, icon: "🚀", stock: 4  },
-  { id: "MR006", name: "Executive Series Space Shuttle Full Stack Atlantis 1:200 Model",    category: "Modelos",          price: 300.00, icon: "🚀", stock: 6  },
-  { id: "MR007", name: "Executive Series Mercury Capsule 1:24 Model",                       category: "Modelos",          price: 260.00, icon: "🛸", stock: 9  },
-  { id: "MR008", name: "Executive Series Gemini IV Capsule 1:24 Model",                     category: "Modelos",          price: 280.00, icon: "🛸", stock: 5  },
-  { id: "MR009", name: "Executive Series Mercury Redstone Rocket 1:72 Model",               category: "Modelos",          price: 250.00, icon: "🚀", stock: 7  },
-  { id: "MR010", name: "Executive Series Apollo 11 Capsule 1:25 Model",                     category: "Modelos",          price: 300.00, icon: "🌕", stock: 6  },
-  { id: "MR011", name: "SLS Rocket 1:235 Model",                                            category: "Modelos",          price: 59.99,  icon: "🚀", stock: 22 },
-  { id: "MR012", name: "Boeing CST-100 STARLINER 1:48 Model",                               category: "Modelos",          price: 59.99,  icon: "🛸", stock: 15 },
-  { id: "MR013", name: "Apollo 11 Saturn V Rocket Model 1:96 Scale",                        category: "Modelos",          price: 209.99, icon: "🚀", stock: 10 },
-  { id: "MR014", name: "Saturn V 1B Rocket Model",                                          category: "Modelos",          price: 115.00, icon: "🚀", stock: 12 },
-  { id: "MR015", name: "Space Launch System 1/200 Scale Model",                             category: "Modelos",          price: 300.00, icon: "🚀", stock: 5  },
-  { id: "MR016", name: "Metal Earth - Mars Rover Perseverance & Ingenuity",                 category: "Modelos",          price: 39.99,  icon: "🤖", stock: 30 },
-  { id: "MR017", name: "Metal Earth - James Webb Space Telescope",                          category: "Modelos",          price: 24.99,  icon: "🔭", stock: 40 },
-  { id: "MR018", name: "Space Shuttle Model 1/72 scale By Revell",                          category: "Modelos",          price: 95.99,  icon: "🚀", stock: 8  },
-  { id: "MR019", name: "Apollo Command Module 1/48 Scale Model",                            category: "Modelos",          price: 300.00, icon: "🌕", stock: 4  },
-
-  // ── METEORITOS Y COLECCIONABLES ────────────────────────────────────────────
-  { id: "MT001", name: "Authentic Mars Rock Large",                                         category: "Meteoritos",       price: 170.00, icon: "☄️", stock: 3  },
-  { id: "MT002", name: "Authentic Mars Rock Medium",                                        category: "Meteoritos",       price: 105.00, icon: "☄️", stock: 5  },
-  { id: "MT003", name: "Genuine Meteorite 1/2 Lb",                                         category: "Meteoritos",       price: 315.00, icon: "☄️", stock: 4  },
-  { id: "MT004", name: "Genuine Meteorite 25 Grams",                                       category: "Meteoritos",       price: 60.00,  icon: "☄️", stock: 18 },
-  { id: "MT005", name: "Genuine Meteorite 150 Grams",                                      category: "Meteoritos",       price: 220.00, icon: "☄️", stock: 6  },
-  { id: "MT006", name: "Genuine Meteorite 3 Grams",                                        category: "Meteoritos",       price: 14.99,  icon: "☄️", stock: 90 },
-  { id: "MT007", name: "Genuine Meteorite Necklace",                                       category: "Meteoritos",       price: 24.99,  icon: "💎", stock: 35 },
-  { id: "MT008", name: "Authentic Moon Rock Small",                                        category: "Meteoritos",       price: 80.00,  icon: "🌕", stock: 7  },
-  { id: "MT009", name: "Authentic Moon Rock Large",                                        category: "Meteoritos",       price: 170.00, icon: "🌕", stock: 4  },
-  { id: "MT010", name: "Authentic Mars Rock Small",                                        category: "Meteoritos",       price: 80.00,  icon: "☄️", stock: 9  },
-  { id: "MT011", name: "Silver Star Meteorite Earrings",                                   category: "Meteoritos",       price: 100.00, icon: "💫", stock: 12 },
-  { id: "MT012", name: "Silver Star Meteorite Pendant",                                    category: "Meteoritos",       price: 105.00, icon: "💫", stock: 10 },
-  { id: "MT013", name: "Solar System Meteorite Pendant",                                   category: "Meteoritos",       price: 105.00, icon: "💫", stock: 8  },
-  { id: "MT014", name: "Spiral Galaxy Meteorite Pendant",                                  category: "Meteoritos",       price: 105.00, icon: "💫", stock: 9  },
-  { id: "MT015", name: "I Love You To The Moon Pendant",                                   category: "Meteoritos",       price: 400.00, icon: "🌕", stock: 2  },
-
-  // ── PARCHES DE MISIÓN ─────────────────────────────────────────────────────
-  { id: "MP001", name: "Apollo 11 Mission Patch",                                          category: "Parches",          price: 9.99,   icon: "🎖️", stock: 200 },
-  { id: "MP002", name: "NASA Hubble Patch",                                                category: "Parches",          price: 9.99,   icon: "🎖️", stock: 180 },
-  { id: "MP003", name: "NASA Meatball Patch 3\"",                                          category: "Parches",          price: 9.99,   icon: "🎖️", stock: 350 },
-  { id: "MP004", name: "STS-125 Mission Patch",                                            category: "Parches",          price: 9.99,   icon: "🎖️", stock: 130 },
-  { id: "MP005", name: "STS-135 Mission Patch",                                            category: "Parches",          price: 9.99,   icon: "🎖️", stock: 120 },
-  { id: "MP006", name: "Artemis II Mission Patch",                                         category: "Parches",          price: 9.99,   icon: "🎖️", stock: 240 },
-  { id: "MP007", name: "STS-130 Mission Patch",                                            category: "Parches",          price: 9.99,   icon: "🎖️", stock: 100 },
-  { id: "MP008", name: "STS-119 Mission Patch",                                            category: "Parches",          price: 9.99,   icon: "🎖️", stock: 95  },
-
-  // ── COMIDA ESPACIAL ───────────────────────────────────────────────────────
-  { id: "SF001", name: "Space Candy Freeze Dried Galaxy Clusters",                         category: "Comida Espacial",  price: 12.99,  icon: "🍬", stock: 320 },
-  { id: "SF002", name: "Space Candy Freeze Dried Snoopy's Moon Rocks Caramel Fudge",      category: "Comida Espacial",  price: 12.99,  icon: "🍬", stock: 280 },
-  { id: "SF003", name: "Space Candy Freeze Dried Lemon Planets",                          category: "Comida Espacial",  price: 12.99,  icon: "🍋", stock: 260 },
-  { id: "SF004", name: "Space Candy Freeze Dried Meteor Bites",                           category: "Comida Espacial",  price: 12.99,  icon: "☄️", stock: 300 },
-  { id: "SF005", name: "Space Candy Freeze Dried Sour Alien Worms",                       category: "Comida Espacial",  price: 12.99,  icon: "👽", stock: 290 },
-  { id: "SF006", name: "Space Candy Freeze Dried Sour Rainbow Orbits",                    category: "Comida Espacial",  price: 12.99,  icon: "🌈", stock: 310 },
-  { id: "SF007", name: "Space Candy Freeze Dried Rainbow Orbits",                         category: "Comida Espacial",  price: 12.99,  icon: "🌈", stock: 275 },
-  { id: "SF008", name: "Space Food Freeze Dried Strawberries",                            category: "Comida Espacial",  price: 7.99,   icon: "🍓", stock: 400 },
-  { id: "SF009", name: "Space Food Vanilla Freeze Dried Ice Cream Sandwich",              category: "Comida Espacial",  price: 7.99,   icon: "🍦", stock: 380 },
-  { id: "SF010", name: "Space Food Neapolitan Freeze Dried Ice Cream Sandwich",           category: "Comida Espacial",  price: 7.99,   icon: "🍨", stock: 365 },
-  { id: "SF011", name: "Space Food Mint Chocolate Chip Freeze Dried Ice Cream Sandwich",  category: "Comida Espacial",  price: 7.99,   icon: "🍦", stock: 340 },
-
-  // ── JUGUETES ──────────────────────────────────────────────────────────────
-  { id: "TY001", name: "Articulated Astronaut Toy",                                       category: "Juguetes",         price: 5.99,   icon: "🧑‍🚀", stock: 220 },
-  { id: "TY002", name: "Space Shuttle Launch Pad Diecast Toy",                            category: "Juguetes",         price: 14.99,  icon: "🚀", stock: 85  },
-  { id: "TY003", name: "Astronaut Rubber Duck Toy",                                       category: "Juguetes",         price: 12.99,  icon: "🦆", stock: 140 },
-  { id: "TY004", name: "Astronaut Galaxy Projector Lamp",                                 category: "Juguetes",         price: 34.99,  icon: "🌌", stock: 55  },
-  { id: "TY005", name: "Ellen Ochoa Barbie Inspiring Women Doll",                         category: "Juguetes",         price: 44.99,  icon: "🪆", stock: 30  },
-  { id: "TY006", name: "Barbie Limited Edition 60th Anniversary Miss Astronaut 1965 Doll",category: "Juguetes",         price: 115.00, icon: "🪆", stock: 12  },
-  { id: "TY007", name: "Space Shuttle With Transporter Truck",                            category: "Juguetes",         price: 39.99,  icon: "🚚", stock: 45  },
-  { id: "TY008", name: "Astronaut Action Figure",                                         category: "Juguetes",         price: 39.99,  icon: "🧑‍🚀", stock: 60  },
-  { id: "TY009", name: "Build Your Own Space Station Playset",                            category: "Juguetes",         price: 12.99,  icon: "🛸", stock: 95  },
-  { id: "TY010", name: "Barbie 65th Anniversary Careers Astronaut Doll",                  category: "Juguetes",         price: 39.99,  icon: "🪆", stock: 28  },
-  { id: "TY011", name: "Stomp Rocket Space Collection Single Shuttle Atlantis",           category: "Juguetes",         price: 14.99,  icon: "🚀", stock: 110 },
-  { id: "TY012", name: "Stomp Rocket Space Collection Single Saturn V Rocket",            category: "Juguetes",         price: 14.99,  icon: "🚀", stock: 105 },
-  { id: "TY013", name: "Radio Control Space Shuttle",                                     category: "Juguetes",         price: 39.99,  icon: "🕹️", stock: 38  },
-  { id: "TY014", name: "Mars Mission Rover Toy",                                          category: "Juguetes",         price: 24.99,  icon: "🤖", stock: 72  },
-  { id: "TY015", name: "Apollo & Shuttle Adventure Set",                                  category: "Juguetes",         price: 34.99,  icon: "🚀", stock: 50  },
-
-  // ── ROPA Y ACCESORIOS ─────────────────────────────────────────────────────
-  { id: "AP001", name: "RSVLTS® One Small Putt For Man All-Day Polo",                     category: "Ropa y Accesorios",price: 79.99,  icon: "👕", stock: 60  },
-  { id: "AP002", name: "Under Armour Women's NASA Meatball Quarter Zip Midi Pullover",    category: "Ropa y Accesorios",price: 69.99,  icon: "🧥", stock: 45  },
-  { id: "AP003", name: "Under Armour KSC NASA Meatball Tech™ Stretch Hoodie Tee",        category: "Ropa y Accesorios",price: 44.99,  icon: "👕", stock: 75  },
-  { id: "AP004", name: "Under Armour Youth KSC Circle NASA Meatball Tech™ Stretch Tee",  category: "Ropa y Accesorios",price: 34.99,  icon: "👕", stock: 55  },
-  { id: "AP005", name: "Peter Millar NASA Meatball Hugo Performance Jersey Polo",         category: "Ropa y Accesorios",price: 140.00, icon: "👔", stock: 20  },
-  { id: "AP006", name: "Kennedy Space Center Hat & Tee Combo Grey & Navy",               category: "Ropa y Accesorios",price: 24.99,  icon: "🧢", stock: 90  },
-  { id: "AP007", name: "Women's Artemis Flight Jacket White",                             category: "Ropa y Accesorios",price: 155.00, icon: "🧥", stock: 18  },
-  { id: "AP008", name: "Basic NASA Meatball Tee Charcoal",                               category: "Ropa y Accesorios",price: 19.99,  icon: "👕", stock: 200 },
-  { id: "AP009", name: "Loungefly NASA Mini Space Suit Backpack",                         category: "Ropa y Accesorios",price: 85.00,  icon: "🎒", stock: 30  },
-  { id: "AP010", name: "RSVLTS® Peanuts Moonwalk Snoopy Tee",                            category: "Ropa y Accesorios",price: 44.99,  icon: "👕", stock: 40  },
-  { id: "AP011", name: "RSVLTS® Snoopy In Space KUNUFLEX Short Sleeve Shirt",            category: "Ropa y Accesorios",price: 79.99,  icon: "👕", stock: 35  },
-  { id: "AP012", name: "NASA Meatball Cool Fit Hat Orange",                               category: "Ropa y Accesorios",price: 34.99,  icon: "🧢", stock: 65  },
-  { id: "AP013", name: "Kennedy Space Center LC-39 Gold Rope Admiral Hat",               category: "Ropa y Accesorios",price: 34.99,  icon: "🧢", stock: 50  },
-
-  // ── HOGAR Y REGALOS ───────────────────────────────────────────────────────
-  { id: "HG001", name: "Artemis II Mug",                                                  category: "Hogar y Regalos",  price: 24.99,  icon: "☕", stock: 120 },
-  { id: "HG002", name: "Artemis II Beach Towel",                                          category: "Hogar y Regalos",  price: 29.99,  icon: "🏖️", stock: 75  },
-  { id: "HG003", name: "Artemis II Magnet",                                               category: "Hogar y Regalos",  price: 12.99,  icon: "🧲", stock: 200 },
-  { id: "HG004", name: "NASA Space Oven Mitts Blue",                                      category: "Hogar y Regalos",  price: 16.99,  icon: "🧤", stock: 90  },
-  { id: "HG005", name: "Metal NASA 'MEATBALL' Ornament",                                  category: "Hogar y Regalos",  price: 14.99,  icon: "⭐", stock: 140 },
-  { id: "HG006", name: "KSC Shuttle and Earth Ornament",                                  category: "Hogar y Regalos",  price: 12.99,  icon: "⭐", stock: 110 },
-  { id: "HG007", name: "Space Shuttle Atlantis Plush",                                    category: "Hogar y Regalos",  price: 24.99,  icon: "🧸", stock: 80  },
-  { id: "HG008", name: "24k Gold Plated Collectable Orbiter",                             category: "Hogar y Regalos",  price: 24.99,  icon: "🥇", stock: 60  },
-  { id: "HG009", name: "NASA Meatball Silicone Luggage Tag",                              category: "Hogar y Regalos",  price: 9.99,   icon: "🏷️", stock: 250 },
-  { id: "HG010", name: "NASA Worm Siren Mug Cream",                                       category: "Hogar y Regalos",  price: 19.99,  icon: "☕", stock: 100 },
-  { id: "HG011", name: "SpaceX Occupy Mars Heat Sensitive Terraforming Mug",              category: "Hogar y Regalos",  price: 24.99,  icon: "☕", stock: 65  },
-  { id: "HG012", name: "YETI Rambler® 12 oz Colster® Can Cooler NASA Meatball",          category: "Hogar y Regalos",  price: 39.99,  icon: "🧊", stock: 45  },
-  { id: "HG013", name: "Kennedy Space Center Rocket Fuel Coffee Mug",                    category: "Hogar y Regalos",  price: 14.99,  icon: "☕", stock: 130 },
-  { id: "HG014", name: "Kennedy Space Center Aerial Tumbler",                             category: "Hogar y Regalos",  price: 34.99,  icon: "🥤", stock: 70  },
-  { id: "HG015", name: "Kennedy Space Center Astronaut With Flag Boxed Mug",             category: "Hogar y Regalos",  price: 9.99,   icon: "☕", stock: 160 },
-];
-
-// ── Helpers ───────────────────────────────────────────────────────────────────
-
-/** Categorías únicas */
-export const CATEGORIES = [...new Set(SPACE_SHOP_PRODUCTS.map(p => p.category))];
-
-/** Etiquetas de categoría en español para la UI */
-export const CATEGORY_LABELS = {
-  "Modelos":           "Modelos",
-  "Meteoritos":        "Meteoritos",
-  "Parches":           "Parches de Misión",
-  "Comida Espacial":   "Comida Espacial",
-  "Juguetes":          "Juguetes",
-  "Ropa y Accesorios": "Ropa & Accesorios",
-  "Hogar y Regalos":   "Hogar & Regalos",
+// ── EMPRESA ───────────────────────────────────────────────────────────────────
+export const COMPANY_INFO = {
+  name:          "The Space Shop",
+  fullName:      "The Space Shop — Kennedy Space Center Official Store",
+  parent:        "Delaware North",
+  location:      "Space Commerce Way, Merritt Island, FL 32953",
+  phone:         "1.800.621.9826",
+  website:       "https://thespaceshop.com",
+  platform:      "BigCommerce",
+  freeShipping:  75,   // USD threshold
+  currency:      "USD",
+  totalProducts: 1149, // aprox. según conteo del sitio
 };
 
-/** Ubicaciones de compra simuladas */
-export const PURCHASE_LOCATIONS = [
-  "Houston, TX", "Cape Canaveral, FL", "Los Ángeles, CA", "Nueva York, NY",
-  "Chicago, IL", "Seattle, WA", "Denver, CO", "Boston, MA",
-  "Austin, TX", "San Francisco, CA", "Miami, FL", "Londres, UK",
-  "Tokio, Japón", "Berlín, Alemania", "Toronto, Canadá", "Sídney, Australia",
-  "Madrid, España", "Ciudad de México, MX", "Bogotá, Colombia", "São Paulo, Brasil",
+// ── MARCAS ASOCIADAS ──────────────────────────────────────────────────────────
+export const BRANDS = [
+  "47 Brand", "Champion", "Nike", "Under Armour", "RSVLTS",
+  "Peter Millar", "Loungefly", "New Era", "Fisher Space Pen",
+  "YETI", "Corkcicle", "DemerBox", "Pins & Aces", "Lusso",
+  "Barbie / Mattel", "LEGO", "Palm Pals",
 ];
 
-/** Producto aleatorio con peso inverso al precio (baratos se venden más) */
-export function getRandomProduct() {
-  const weights = SPACE_SHOP_PRODUCTS.map(p => 1500 / p.price);
-  const total   = weights.reduce((a, b) => a + b, 0);
-  let rand = Math.random() * total;
-  for (let i = 0; i < SPACE_SHOP_PRODUCTS.length; i++) {
-    rand -= weights[i];
-    if (rand <= 0) return SPACE_SHOP_PRODUCTS[i];
-  }
-  return SPACE_SHOP_PRODUCTS[0];
-}
+// ── TEMAS ESPACIALES ──────────────────────────────────────────────────────────
+export const SPACE_THEMES = [
+  "Apollo", "STS Shuttle", "Artemis", "SpaceX", "Blue Origin", "Peanuts / Snoopy",
+];
 
-export function getRandomLocation() {
-  return PURCHASE_LOCATIONS[Math.floor(Math.random() * PURCHASE_LOCATIONS.length)];
+// ── CATEGORÍAS REALES DEL SITIO ───────────────────────────────────────────────
+export const CATEGORIES = [
+  { id: "memorabilia",   name: "Memorabilia",             count: 233, icon: "🏅" },
+  { id: "clothing",      name: "Clothing & Accessories",  count: 367, icon: "👕" },
+  { id: "toys",          name: "Toy Shop",                count: 87,  icon: "🧸" },
+  { id: "home_gift",     name: "Home & Gift",             count: 462, icon: "🏠" },
+  { id: "sale",          name: "Sale",                    count: 12,  icon: "🏷️" },
+];
+
+// ── SUBCATEGORÍAS ──────────────────────────────────────────────────────────────
+export const SUBCATEGORIES = {
+  memorabilia: ["Mission Patches", "Models", "Framed Art", "Meteorites"],
+  clothing:    ["Men", "Women", "Kids", "Accessories", "Brands"],
+  toys:        ["LEGO & Blocks", "Plush", "Puzzles & Games", "Toys", "Costumes"],
+  home_gift:   ["Drinkware & Mugs", "Magnets", "Pens", "Home Accents", "Books", "Golf", "Space Food", "Keychains & Bag Charms"],
+};
+
+// ── CATÁLOGO DE PRODUCTOS REALES ──────────────────────────────────────────────
+export const SPACE_SHOP_PRODUCTS = [
+
+  // ── MEMORABILIA — MODELOS ─────────────────────────────────────────────────
+  { id: "MR001", name: "Executive Series Space Shuttle Full Stack Discovery 1:200 Model", category: "Memorabilia", sub: "Models", price: 300.00, icon: "🚀", brand: null },
+  { id: "MR002", name: "Executive Series Saturn V Rocket 1:200 Model",                   category: "Memorabilia", sub: "Models", price: 350.00, icon: "🚀", brand: null },
+  { id: "MR003", name: "Executive Series Lunar Excursion Module 1:48 Model",             category: "Memorabilia", sub: "Models", price: 280.00, icon: "🌕", brand: null },
+  { id: "MR004", name: "Executive Series Command Module 1:48 Model",                     category: "Memorabilia", sub: "Models", price: 300.00, icon: "🛸", brand: null },
+  { id: "MR005", name: "Executive Series Space Shuttle Full Stack Endeavour 1:200 Model",category: "Memorabilia", sub: "Models", price: 300.00, icon: "🚀", brand: null },
+  { id: "MR006", name: "Executive Series Space Shuttle Full Stack Atlantis 1:200 Model", category: "Memorabilia", sub: "Models", price: 300.00, icon: "🚀", brand: null },
+  { id: "MR007", name: "Executive Series Mercury Capsule 1:24 Model",                   category: "Memorabilia", sub: "Models", price: 260.00, icon: "🛸", brand: null },
+  { id: "MR008", name: "Executive Series Gemini IV Capsule 1:24 Model",                 category: "Memorabilia", sub: "Models", price: 280.00, icon: "🛸", brand: null },
+  { id: "MR009", name: "Executive Series Mercury Redstone Rocket 1:72 Model",           category: "Memorabilia", sub: "Models", price: 250.00, icon: "🚀", brand: null },
+  { id: "MR010", name: "Executive Series Apollo 11 Capsule 1:25 Model",                 category: "Memorabilia", sub: "Models", price: 300.00, icon: "🌕", brand: null },
+  { id: "MR011", name: "SLS Rocket 1:235 Model",                                        category: "Memorabilia", sub: "Models", price: 59.99,  icon: "🚀", brand: null },
+  { id: "MR012", name: "Boeing CST-100 STARLINER 1:48 Model",                           category: "Memorabilia", sub: "Models", price: 59.99,  icon: "🛸", brand: null },
+  { id: "MR013", name: "Apollo 11 Saturn V Rocket Model 1:96 Scale",                   category: "Memorabilia", sub: "Models", price: 209.99, icon: "🚀", brand: null },
+
+  // ── MEMORABILIA — METEORITOS ──────────────────────────────────────────────
+  { id: "MT001", name: "Authentic Moon Rock Small",         category: "Memorabilia", sub: "Meteorites", price: 80.00,  icon: "🌕", brand: null },
+  { id: "MT002", name: "Authentic Moon Rock Large",         category: "Memorabilia", sub: "Meteorites", price: 170.00, icon: "🌕", brand: null },
+  { id: "MT003", name: "Authentic Mars Rock Small",         category: "Memorabilia", sub: "Meteorites", price: 80.00,  icon: "☄️", brand: null },
+  { id: "MT004", name: "Authentic Mars Rock Medium",        category: "Memorabilia", sub: "Meteorites", price: 105.00, icon: "☄️", brand: null },
+  { id: "MT005", name: "Authentic Mars Rock Large",         category: "Memorabilia", sub: "Meteorites", price: 170.00, icon: "☄️", brand: null },
+  { id: "MT006", name: "Genuine Meteorite 3 Grams",         category: "Memorabilia", sub: "Meteorites", price: 14.99,  icon: "☄️", brand: null },
+  { id: "MT007", name: "Genuine Meteorite 25 Grams",        category: "Memorabilia", sub: "Meteorites", price: 60.00,  icon: "☄️", brand: null },
+  { id: "MT008", name: "Genuine Meteorite 150 Grams",       category: "Memorabilia", sub: "Meteorites", price: 220.00, icon: "☄️", brand: null },
+  { id: "MT009", name: "Genuine Meteorite 1/2 Lb",          category: "Memorabilia", sub: "Meteorites", price: 315.00, icon: "☄️", brand: null },
+  { id: "MT010", name: "Genuine Meteorite Necklace",        category: "Memorabilia", sub: "Meteorites", price: 24.99,  icon: "💎", brand: null },
+  { id: "MT011", name: "Silver Star Meteorite Earrings",    category: "Memorabilia", sub: "Meteorites", price: 100.00, icon: "💫", brand: null },
+  { id: "MT012", name: "Silver Star Meteorite Pendant",     category: "Memorabilia", sub: "Meteorites", price: 105.00, icon: "💫", brand: null },
+  { id: "MT013", name: "Solar System Meteorite Pendant",    category: "Memorabilia", sub: "Meteorites", price: 105.00, icon: "💫", brand: null },
+  { id: "MT014", name: "Spiral Galaxy Meteorite Pendant",   category: "Memorabilia", sub: "Meteorites", price: 105.00, icon: "💫", brand: null },
+  { id: "MT015", name: "I Love You To The Moon Pendant",    category: "Memorabilia", sub: "Meteorites", price: 400.00, icon: "🌙", brand: null },
+
+  // ── MEMORABILIA — PARCHES DE MISIÓN (muestra representativa de 176 totales) ─
+  { id: "MP001", name: "STS-119 Mission Patch",   category: "Memorabilia", sub: "Mission Patches", price: 9.99, icon: "🎖️", brand: null },
+  { id: "MP002", name: "STS-100 Mission Patch",   category: "Memorabilia", sub: "Mission Patches", price: 9.99, icon: "🎖️", brand: null },
+  { id: "MP003", name: "STS-98 Mission Patch",    category: "Memorabilia", sub: "Mission Patches", price: 9.99, icon: "🎖️", brand: null },
+  { id: "MP004", name: "STS-97 Mission Patch",    category: "Memorabilia", sub: "Mission Patches", price: 9.99, icon: "🎖️", brand: null },
+  { id: "MP005", name: "STS-106 Mission Patch",   category: "Memorabilia", sub: "Mission Patches", price: 9.99, icon: "🎖️", brand: null },
+  { id: "MP006", name: "STS-99 Mission Patch",    category: "Memorabilia", sub: "Mission Patches", price: 9.99, icon: "🎖️", brand: null },
+  { id: "MP007", name: "STS-96 Mission Patch",    category: "Memorabilia", sub: "Mission Patches", price: 9.99, icon: "🎖️", brand: null },
+  { id: "MP008", name: "STS-89 Mission Patch",    category: "Memorabilia", sub: "Mission Patches", price: 9.99, icon: "🎖️", brand: null },
+  { id: "MP009", name: "NASA Hubble Patch",        category: "Memorabilia", sub: "Mission Patches", price: 9.99, icon: "🔭", brand: null },
+  { id: "MP010", name: "STS-125 Mission Patch",   category: "Memorabilia", sub: "Mission Patches", price: 9.99, icon: "🎖️", brand: null },
+  { id: "MP011", name: "STS-130 Mission Patch",   category: "Memorabilia", sub: "Mission Patches", price: 9.99, icon: "🎖️", brand: null },
+  { id: "MP012", name: "STS-129 Mission Patch",   category: "Memorabilia", sub: "Mission Patches", price: 9.99, icon: "🎖️", brand: null },
+
+  // ── CLOTHING & ACCESSORIES ────────────────────────────────────────────────
+  { id: "CL001", name: "RSVLTS® Peanuts Moonwalk Snoopy Tee",                    category: "Clothing & Accessories", sub: "Men",   price: 44.99, icon: "👕", brand: "RSVLTS" },
+  { id: "CL002", name: "RSVLTS® Snoopy In Space KUNUFLEX Short Sleeve Shirt",    category: "Clothing & Accessories", sub: "Men",   price: 79.99, icon: "👕", brand: "RSVLTS" },
+  { id: "CL003", name: "Villainous Astronaut Tee",                               category: "Clothing & Accessories", sub: "Men",   price: 34.99, icon: "👕", brand: null },
+  { id: "CL004", name: "RSVLTS® One Small Putt For Man All-Day Polo",            category: "Clothing & Accessories", sub: "Men",   price: 79.99, icon: "👔", brand: "RSVLTS" },
+  { id: "CL005", name: "Pins & Aces NASA Space Walk Polo Grey",                  category: "Clothing & Accessories", sub: "Men",   price: 79.99, icon: "👔", brand: "Pins & Aces" },
+  { id: "CL006", name: "Pins & Aces NASA Space Walk Polo Blue",                  category: "Clothing & Accessories", sub: "Men",   price: 79.99, icon: "👔", brand: "Pins & Aces" },
+  { id: "CL007", name: "Under Armour KSC NASA Meatball Tech™ Stretch Hoodie Tee",category: "Clothing & Accessories", sub: "Men",   price: 44.99, icon: "👕", brand: "Under Armour" },
+  { id: "CL008", name: "Be Greater Than Average Pocket Tee Soothing Blue",       category: "Clothing & Accessories", sub: "Men",   price: 34.99, icon: "👕", brand: null },
+  { id: "CL009", name: "Ballroom KSC Shuttle Tee Spruce",                        category: "Clothing & Accessories", sub: "Men",   price: 29.99, icon: "👕", brand: null },
+  { id: "CL010", name: "KSC Blockbuster Tee Pepper",                             category: "Clothing & Accessories", sub: "Men",   price: 29.99, icon: "👕", brand: null },
+  { id: "CL011", name: "Under Armour Women's NASA Worm Icon Crew Sweatshirt",    category: "Clothing & Accessories", sub: "Women", price: 69.99, icon: "👚", brand: "Under Armour" },
+  { id: "CL012", name: "Under Armour Women's NASA Meatball Quarter Zip Pullover",category: "Clothing & Accessories", sub: "Women", price: 69.99, icon: "👚", brand: "Under Armour" },
+  { id: "CL013", name: "Women's Doorway Astronaut Tee Periwinkle",               category: "Clothing & Accessories", sub: "Women", price: 29.99, icon: "👕", brand: null },
+  { id: "CL014", name: "Champion Women's NASA Meatball Ringer Tee White Navy",   category: "Clothing & Accessories", sub: "Women", price: 39.99, icon: "👕", brand: "Champion" },
+  { id: "CL015", name: "Women's NASA Meatball Ribbed Tee Steel Grey",            category: "Clothing & Accessories", sub: "Women", price: 44.99, icon: "👕", brand: null },
+  { id: "CL016", name: "Women's NASA Meatball Midi Sweatshirt Spring Navy",      category: "Clothing & Accessories", sub: "Women", price: 59.99, icon: "👚", brand: null },
+  { id: "CL017", name: "Women's Kennedy Space Center Embossed Mock Neck Sweatshirt", category: "Clothing & Accessories", sub: "Women", price: 69.99, icon: "👚", brand: null },
+  { id: "CL018", name: "Women's Kennedy Space Center Nelly Bows Tee Ivory",      category: "Clothing & Accessories", sub: "Women", price: 29.99, icon: "👕", brand: null },
+  { id: "CL019", name: "Under Armour Youth KSC NASA Worm Tech™ Stretch Hoodie Tee", category: "Clothing & Accessories", sub: "Kids", price: 44.99, icon: "👕", brand: "Under Armour" },
+  { id: "CL020", name: "Loungefly NASA Mini Backpack",                            category: "Clothing & Accessories", sub: "Accessories", price: 85.00, icon: "🎒", brand: "Loungefly" },
+  { id: "CL021", name: "NASA Meatball Luggage Tag",                              category: "Clothing & Accessories", sub: "Accessories", price: 9.99,  icon: "🏷️", brand: null },
+  { id: "CL022", name: "Pins & Aces NASA Meatball Golf Ball Marker",             category: "Clothing & Accessories", sub: "Accessories", price: 14.95, icon: "⛳", brand: "Pins & Aces" },
+  { id: "CL023", name: "NASA 2027 Calendar",                                     category: "Clothing & Accessories", sub: "Accessories", price: 9.99,  icon: "📅", brand: null },
+
+  // ── TOY SHOP ──────────────────────────────────────────────────────────────
+  { id: "TY001", name: "Kennedy Space Center Toy Cube Puzzle",              category: "Toy Shop", sub: "Puzzles & Games", price: 9.99,   icon: "🧩", brand: null },
+  { id: "TY002", name: "Palm Pals Plush Astronaut Snoopy",                  category: "Toy Shop", sub: "Plush",          price: 14.99,  icon: "🧸", brand: "Palm Pals" },
+  { id: "TY003", name: "Plush Peanuts Astronaut Snoopy",                    category: "Toy Shop", sub: "Plush",          price: 29.99,  icon: "🧸", brand: null },
+  { id: "TY004", name: "LEGO® Creator 3-in-1 Space Exploration Telescope",  category: "Toy Shop", sub: "LEGO & Blocks",  price: 44.99,  icon: "🔭", brand: "LEGO" },
+  { id: "TY005", name: "Articulated Astronaut Toy",                         category: "Toy Shop", sub: "Toys",           price: 5.99,   icon: "👨‍🚀", brand: null },
+  { id: "TY006", name: "Space Shuttle Launch Pad Diecast Toy",              category: "Toy Shop", sub: "Toys",           price: 14.99,  icon: "🚀", brand: null },
+  { id: "TY007", name: "Astronaut Rubber Duck Toy",                         category: "Toy Shop", sub: "Toys",           price: 12.99,  icon: "🐥", brand: null },
+  { id: "TY008", name: "Plush Astronaut In Space Suit",                     category: "Toy Shop", sub: "Plush",          price: 24.99,  icon: "🧸", brand: null },
+  { id: "TY009", name: "Astronaut Galaxy Projector Lamp",                   category: "Toy Shop", sub: "Toys",           price: 34.99,  icon: "🌌", brand: null },
+  { id: "TY010", name: "Plush Astronaut Monkey",                            category: "Toy Shop", sub: "Plush",          price: 24.99,  icon: "🧸", brand: null },
+  { id: "TY011", name: "Atlantis Space Shuttle Mini Building Blocks",       category: "Toy Shop", sub: "LEGO & Blocks",  price: 39.99,  icon: "🧱", brand: null },
+  { id: "TY012", name: "Ellen Ochoa Barbie Inspiring Women Doll",           category: "Toy Shop", sub: "Toys",           price: 44.99,  icon: "🪆", brand: "Barbie / Mattel" },
+  { id: "TY013", name: "Youth Astronaut Gloves",                            category: "Toy Shop", sub: "Costumes",       price: 14.99,  icon: "🧤", brand: null },
+  { id: "TY014", name: "LEGO® Technic Lunar Outpost® Moon Rover",          category: "Toy Shop", sub: "LEGO & Blocks",  price: 110.00, icon: "🤖", brand: "LEGO" },
+  { id: "TY015", name: "LEGO® Icons Shuttle Carrier Aircraft",              category: "Toy Shop", sub: "LEGO & Blocks",  price: 240.00, icon: "✈️", brand: "LEGO" },
+  { id: "TY016", name: "Barbie Limited Edition 60th Anniversary Miss Astronaut", category: "Toy Shop", sub: "Toys",     price: 115.00, icon: "🪆", brand: "Barbie / Mattel" },
+  { id: "TY017", name: "Space Shuttle With Transporter Truck",              category: "Toy Shop", sub: "Toys",           price: 39.99,  icon: "🚛", brand: null },
+  { id: "TY018", name: "Astronaut Action Figure",                           category: "Toy Shop", sub: "Toys",           price: 39.99,  icon: "🤖", brand: null },
+  { id: "TY019", name: "Build Your Own Space Station Playset",              category: "Toy Shop", sub: "Toys",           price: 12.99,  icon: "🏗️", brand: null },
+  { id: "TY020", name: "Playing Cards NASA Foil Meatball",                 category: "Toy Shop", sub: "Puzzles & Games",price: 12.99,  icon: "🃏", brand: null },
+
+  // ── HOME & GIFT ───────────────────────────────────────────────────────────
+  { id: "HG001", name: "Space Candy Freeze Dried Galaxy Clusters",          category: "Home & Gift", sub: "Space Food",          price: 12.99, icon: "🍬", brand: null },
+  { id: "HG002", name: "NASA Worm Siren Mug Cream",                         category: "Home & Gift", sub: "Drinkware & Mugs",    price: 19.99, icon: "☕", brand: null },
+  { id: "HG003", name: "Artemis II Mug",                                    category: "Home & Gift", sub: "Drinkware & Mugs",    price: 24.99, icon: "☕", brand: null },
+  { id: "HG004", name: "Artemis II Shot Glass",                             category: "Home & Gift", sub: "Drinkware & Mugs",    price: 12.99, icon: "🥃", brand: null },
+  { id: "HG005", name: "Space Shuttle Program Embroidered Patch Magnet",    category: "Home & Gift", sub: "Magnets",             price: 9.99,  icon: "🧲", brand: null },
+  { id: "HG006", name: "Space Shuttle Embroidered Patch Magnet",            category: "Home & Gift", sub: "Magnets",             price: 9.99,  icon: "🧲", brand: null },
+  { id: "HG007", name: "Apollo Embroidered Patch Magnet",                   category: "Home & Gift", sub: "Magnets",             price: 9.99,  icon: "🧲", brand: null },
+  { id: "HG008", name: "Shuttle Malta Magnet",                              category: "Home & Gift", sub: "Magnets",             price: 9.99,  icon: "🧲", brand: null },
+  { id: "HG009", name: "Snoopy In Space With American Flag Chunky Magnet",  category: "Home & Gift", sub: "Magnets",             price: 12.99, icon: "🧲", brand: null },
+  { id: "HG010", name: "Artemis II Magnet",                                 category: "Home & Gift", sub: "Magnets",             price: 12.99, icon: "🧲", brand: null },
+  { id: "HG011", name: "Astronaut Ballpoint Pen",                           category: "Home & Gift", sub: "Pens",                price: 9.99,  icon: "🖊️", brand: null },
+  { id: "HG012", name: "Saturn V Coaster",                                  category: "Home & Gift", sub: "Home Accents",        price: 6.99,  icon: "🥏", brand: null },
+  { id: "HG013", name: "Man On The Moon Coaster",                           category: "Home & Gift", sub: "Home Accents",        price: 6.99,  icon: "🥏", brand: null },
+  { id: "HG014", name: "Atlantis Lift Off Coaster",                         category: "Home & Gift", sub: "Home Accents",        price: 6.99,  icon: "🥏", brand: null },
+  { id: "HG015", name: "Artemis II Beach Towel",                            category: "Home & Gift", sub: "Home Accents",        price: 29.99, icon: "🏖️", brand: null },
+  { id: "HG016", name: "NASA Meatball Silicone Luggage Tag",                category: "Home & Gift", sub: "Keychains & Bag Charms", price: 9.99, icon: "🏷️", brand: null },
+  { id: "HG017", name: "Magic Tree House® #8: Midnight on the Moon Book",   category: "Home & Gift", sub: "Books",               price: 6.99,  icon: "📚", brand: null },
+  { id: "HG018", name: "NASA 2027 Calendar",                                category: "Home & Gift", sub: "Home Accents",        price: 9.99,  icon: "📅", brand: null },
+  { id: "HG019", name: "RSVLTS One Small Putt Polo",                        category: "Home & Gift", sub: "Golf",                price: 79.99, icon: "⛳", brand: "RSVLTS" },
+
+  // ── SALE (artículos en oferta actuales) ───────────────────────────────────
+  { id: "SA001", name: "Kennedy Space Center Hat & Tee Combo Grey & Red",   category: "Sale", sub: "Combo",      price: 19.88, icon: "🏷️", brand: null },
+  { id: "SA002", name: "NASA Airstream Bus Ornament",                       category: "Sale", sub: "Home",       price: 8.88,  icon: "🎄", brand: null },
+  { id: "SA003", name: "Failure Is Not An Option Tee",                      category: "Sale", sub: "Clothing",   price: 29.88, icon: "👕", brand: null },
+  { id: "SA004", name: "Wide Brim Bucket Hat NASA Meatball White",          category: "Sale", sub: "Accessories",price: 14.88, icon: "🧢", brand: null },
+  { id: "SA005", name: "Astronaut Suit Apron",                              category: "Sale", sub: "Home",       price: 9.88,  icon: "🍳", brand: null },
+  { id: "SA006", name: "KSC Logo Mug Red White Blue",                       category: "Sale", sub: "Drinkware",  price: 7.88,  icon: "☕", brand: null },
+  { id: "SA007", name: "Lusso NASA Worm Metallic Key Ring Pouch Royal Blue",category: "Sale", sub: "Accessories",price: 12.88, icon: "🔑", brand: "Lusso" },
+  { id: "SA008", name: "Lusso NASA Worm Metallic Key Ring Pouch Gold",      category: "Sale", sub: "Accessories",price: 12.88, icon: "🔑", brand: "Lusso" },
+  { id: "SA009", name: "Lusso NASA Worm Tassel Key Ring Gold",              category: "Sale", sub: "Accessories",price: 9.88,  icon: "🔑", brand: "Lusso" },
+  { id: "SA010", name: "NASA Meatball Applique Crew Sweater Blue",          category: "Sale", sub: "Clothing",   price: 64.88, icon: "👕", brand: null },
+  { id: "SA011", name: "Lusso NASA Worm Metallic Key Ring Pouch Red",       category: "Sale", sub: "Accessories",price: 12.88, icon: "🔑", brand: "Lusso" },
+];
+
+// ── ANÁLISIS FINANCIERO DEL CATÁLOGO ──────────────────────────────────────────
+export const CATALOG_STATS = (() => {
+  const prices = SPACE_SHOP_PRODUCTS.map(p => p.price);
+  const total  = prices.reduce((s, p) => s + p, 0);
+  const byCategory = {};
+  SPACE_SHOP_PRODUCTS.forEach(p => {
+    if (!byCategory[p.category]) byCategory[p.category] = { count: 0, revenue: 0, minPrice: Infinity, maxPrice: 0 };
+    byCategory[p.category].count++;
+    byCategory[p.category].revenue += p.price;
+    byCategory[p.category].minPrice = Math.min(byCategory[p.category].minPrice, p.price);
+    byCategory[p.category].maxPrice = Math.max(byCategory[p.category].maxPrice, p.price);
+  });
+  return {
+    totalSKUs:    SPACE_SHOP_PRODUCTS.length,
+    avgPrice:     total / SPACE_SHOP_PRODUCTS.length,
+    minPrice:     Math.min(...prices),
+    maxPrice:     Math.max(...prices),
+    catalogValue: total,
+    byCategory,
+  };
+})();
+
+// ── HELPERS ───────────────────────────────────────────────────────────────────
+export function getRandomProduct() {
+  return SPACE_SHOP_PRODUCTS[Math.floor(Math.random() * SPACE_SHOP_PRODUCTS.length)];
 }
 
 export function getRandomQty(product) {
-  if (product.category === "Comida Espacial" || product.category === "Parches") {
-    return Math.floor(Math.random() * 3) + 1;
-  }
-  return Math.floor(Math.random() * 2) + 1;
+  // Productos baratos tienen mayor rotación
+  if (product.price < 15)  return Math.floor(Math.random() * 5) + 1;
+  if (product.price < 50)  return Math.floor(Math.random() * 3) + 1;
+  if (product.price < 150) return Math.floor(Math.random() * 2) + 1;
+  return 1;
+}
+
+export function getRandomLocation() {
+  const locations = [
+    "Kennedy Space Center — Tienda Principal",
+    "KSC — Visitor Complex",
+    "KSC — Gift Shop",
+    "Online — thespaceshop.com",
+    "Online — Mobile App",
+    "KSC — Launch Complex 39",
+    "KSC — Apollo/Saturn V Center",
+    "Online — thespaceshop.com/sale",
+  ];
+  return locations[Math.floor(Math.random() * locations.length)];
+}
+
+export function getProductsByCategory(categoryName) {
+  return SPACE_SHOP_PRODUCTS.filter(p => p.category === categoryName);
+}
+
+export function getProductsByBrand(brandName) {
+  return SPACE_SHOP_PRODUCTS.filter(p => p.brand === brandName);
+}
+
+export function getSaleItems() {
+  return SPACE_SHOP_PRODUCTS.filter(p => p.category === "Sale");
 }

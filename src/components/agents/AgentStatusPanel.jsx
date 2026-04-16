@@ -18,18 +18,18 @@ const AGENTS_META = [
   {
     key:     "market",
     icon:    "🛸",
-    name:    "Inteligencia de Mercado",
+    name:    "ORION — Mercado",
     sub:     "The Space Shop · Compras en tiempo real",
-    color:   "from-cyan-600/25 to-cyan-800/10 border-cyan-500/25",
+    color:   "from-indigo-600/25 to-indigo-800/10 border-indigo-500/25",
     metric:  (s) => ({ label: "Ingresos USD",   value: `$${s.market.stats.totalRevenue.toFixed(0)}` }),
     metric2: (s) => ({ label: "Transacciones",  value: s.market.stats.totalTxns }),
   },
   {
     key:     "document",
-    icon:    "📂",
-    name:    "Inteligencia Documental",
-    sub:     "Análisis de archivos · Excel / CSV / TXT / JSON",
-    color:   "from-violet-600/25 to-violet-800/10 border-violet-500/25",
+    icon:    "📡",
+    name:    "ATLAS — Documentos",
+    sub:     "Análisis de archivos · Motor local IA",
+    color:   "from-emerald-600/25 to-emerald-800/10 border-emerald-500/25",
     metric:  (s) => ({ label: "Documentos",  value: s.document.results.length }),
     metric2: (s) => ({
       label: "Estado",
@@ -40,9 +40,9 @@ const AGENTS_META = [
   {
     key:     "customer",
     icon:    "🤖",
-    name:    "Servicio al Cliente — NOVA",
-    sub:     "Asistente IA · The Space Shop",
-    color:   "from-indigo-600/25 to-indigo-800/10 border-indigo-500/25",
+    name:    "NOVA — Cliente",
+    sub:     "Asistente IA 24/7 · Sin API",
+    color:   "from-amber-600/25 to-amber-800/10 border-amber-500/25",
     metric:  (s) => ({ label: "Mensajes",  value: s.customer.messages.length }),
     metric2: (s) => ({ label: "Estado",    value: s.customer.isTyping ? "Respondiendo…" : "Disponible" }),
   },
@@ -112,7 +112,7 @@ export default function AgentStatusPanel() {
           <span className="text-lg">⚡</span>
           <div>
             <h3 className="text-[11px] font-black text-white uppercase tracking-widest">Sistema Multi-Agente</h3>
-            <p className="text-[9px] text-white/35">Gemini 2.0 Flash · 3 agentes operando en paralelo</p>
+            <p className="text-[9px] text-white/35">Motor local · Sin API · 3 agentes operando en paralelo</p>
           </div>
         </div>
         <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10">

@@ -1,13 +1,24 @@
 import React, { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 export default function MetricsGrid({ kpis }) {
   const container = useRef();
 
   useGSAP(() => {
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: container.current,
+        start: "top 85%",
+        toggleActions: "play none none reverse"
+      }
+    });
+
     // Animación de entrada con rebote elástico
-    gsap.from(".metric-card", {
+    tl.from(".metric-card", {
       opacity: 0,
       scale: 0.8,
       y: 50,
@@ -16,15 +27,33 @@ export default function MetricsGrid({ kpis }) {
       ease: "elastic.out(1, 0.5)"
     });
 
-    // Animación de conteo para los números con delay
-    gsap.from(".metric-value", {
+    // Animación de barras de progreso
+    tl.from(".h-full.bg-gradient-to-r, .h-full.bg-indigo-500\\/40", {
+      width: "0%",
+      duration: 2,
+      stagger: 0.2,
+      ease: "power3.out"
+    }, "<0.2");
+
+    // Animación de conteo para los números
+    tl.from(".metric-value", {
       innerText: 0,
       duration: 3,
       snap: { innerText: 1 },
       stagger: 0.2,
-      delay: 0.5,
       ease: "power4.out"
+    }, "<0.2");
+
+    // Animación continua flotante para los recuadros
+    gsap.to(".metric-card", {
+      y: -8,
+      duration: 2.5,
+      repeat: -1,
+      yoyo: true,
+      stagger: 0.3,
+      ease: "sine.inOut"
     });
+
   }, { scope: container });
 
   return (

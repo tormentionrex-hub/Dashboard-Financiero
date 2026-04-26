@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap');
+
+.admin-dashboard-root {
+  font-family: 'Nunito', sans-serif;
+  color: #676767;
+  background-color: #1e1e1e;
+  min-height: 100vh;
+}
+
+.admin-dashboard-root .bg-card {
+  background-color:#171717;
+}
+.admin-dashboard-root .bg-sidebar-card-top {
+  background-color: #353535;
+}
+.admin-dashboard-root .sidebar-separator-top {
+  border-bottom: 1px solid #2e2e2e;
+}
+.admin-dashboard-root .sidebar-separator-bottom {
+  border-top: 1px solid #2e2e2e;
+}
+.admin-dashboard-root .text-premium-yellow {
+  color: #f7b91c;
+}
+.admin-dashboard-root .icon-background {
+  background: #2d2d2d;
+}
+
+.admin-dashboard-root .tooltip-head {
+  background: #1d1d1d;
+}
+.admin-dashboard-root .tooltip-body {
+  background: #252525;
+}
+
+.admin-dashboard-root .search-icon {
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
+.admin-dashboard-root .card-stack-border {
+  border-bottom: 2px solid #696969;
+}
+.admin-dashboard-root .bg-details {
+  background-color: #1e1e1e;
+}
+
+.admin-dashboard-root .add-component-head {
+  background-color: #181818;
+  background-image: url("https://www.transparenttextures.com/patterns/carbon-fibre.png");
+}
+
+.admin-dashboard-root .sidebar-item-selected {
+  color: white;
+  border-right: 2px solid white;
+}
+.admin-dashboard-root .sidebar-item {
+  border-right: 2px solid transparent;
+}
+.admin-dashboard-root .sidebar-item:hover {
+  color: #a1a0a0;
+}

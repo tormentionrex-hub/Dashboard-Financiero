@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import { gsap } from 'gsap';
 import { useGSAP } from "@gsap/react";
+import { Link } from 'react-router-dom';
 
 export default function TopNavBar() {
   const logoRef = useRef();
@@ -33,9 +34,9 @@ export default function TopNavBar() {
             AIFINANCE
           </span>
           <nav className="nav-anim hidden md:flex gap-8 items-center">
-            <a className="text-indigo-400 border-b-2 border-indigo-500 pb-1 font-bold text-xs uppercase tracking-widest hover:text-white transition-all" href="#">Dashboard</a>
-            <a className="text-white/40 font-bold text-xs uppercase tracking-widest hover:text-white transition-all" href="#">Analíticas</a>
-            <a className="text-white/40 font-bold text-xs uppercase tracking-widest hover:text-white transition-all" href="#">Portafolio</a>
+            <Link className="text-indigo-400 border-b-2 border-indigo-500 pb-1 font-bold text-xs uppercase tracking-widest hover:text-white transition-all" to="/">Home</Link>
+            <Link className="text-white/40 font-bold text-xs uppercase tracking-widest hover:text-white transition-all" to="/main-dashboard">Dashboard</Link>
+            <Link className="text-white/40 font-bold text-xs uppercase tracking-widest hover:text-white transition-all" to="/agents">Agentes de IA</Link>
           </nav>
         </div>
         <div className="nav-anim flex items-center gap-4">

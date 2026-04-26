@@ -11,19 +11,15 @@ import TopNavBar             from "../components/navigation/TopNavBar";
 import SideNavBar            from "../components/navigation/SideNavBar";
 import AgentStatusPanel      from "../components/agents/AgentStatusPanel";
 import SpaceShopMonitor      from "../components/agents/SpaceShopMonitor";
-import DocumentProcessor     from "../components/agents/DocumentProcessor";
-import CustomerServiceBot    from "../components/agents/CustomerServiceBot";
 import AgentNetworkAnimation from "../components/agents/AgentNetworkAnimation";
-import BlackHoleBackground   from "../components/dashboard/BlackHoleBackground";
 import { AGENTS_META }       from "../services/agents/agentBus";
+import backgroundVideo from '../images/backgroundVideo.mp4';
 
 gsap.registerPlugin();
 
 // ── Tabs ──────────────────────────────────────────────────────────────────────
 const TABS = [
   { id: "market",   icon: "🛸", label: "ORION — Mercado",       sub: "Compras en tiempo real"      },
-  { id: "document", icon: "📡", label: "ATLAS — Documentos",    sub: "Análisis de archivos local"  },
-  { id: "customer", icon: "🤖", label: "NOVA — Cliente",        sub: "Asistente IA 24/7"           },
 ];
 
 function TabBar({ active, onChange }) {
@@ -129,10 +125,15 @@ function AgentsContent() {
   };
 
   return (
-    <div ref={contentRef} className="text-white min-h-screen relative bg-[#050506]">
-      {/* Fondo */}
-      <div className="absolute top-0 left-0 w-full h-screen z-0 overflow-hidden pointer-events-none">
-        <BlackHoleBackground isPlaying={true} />
+    <div ref={contentRef} className="text-white min-h-screen relative bg-transparent">
+      {/* Fondo cinemático Global */}
+      <div className="fixed top-0 left-0 w-full h-screen z-0 overflow-hidden pointer-events-none">
+        <video
+          src={backgroundVideo}
+          autoPlay loop muted playsInline
+          className="absolute inset-0 w-full h-full object-cover brightness-[0.5] contrast-[1.1] z-0 pointer-events-none"
+        />
+        <div className="absolute inset-0 bg-black/40 z-[1] pointer-events-none"></div>
       </div>
 
       {/* Estructura */}
@@ -188,8 +189,6 @@ function AgentsContent() {
                 {/* Contenido del tab activo */}
                 <div className="tab-content rounded-3xl border border-white/10 bg-black/30 backdrop-blur-xl p-8">
                   {activeTab === "market"   && <SpaceShopMonitor />}
-                  {activeTab === "document" && <DocumentProcessor />}
-                  {activeTab === "customer" && <CustomerServiceBot />}
                 </div>
 
                 {/* ── ANIMACIÓN DE RED NEURONAL ── */}

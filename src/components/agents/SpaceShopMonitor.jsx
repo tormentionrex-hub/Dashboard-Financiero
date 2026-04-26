@@ -6,6 +6,7 @@ import React, { useRef, useEffect } from "react";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { useAgents } from "../../context/AgentsContext";
+import { useAiAnalysis } from "../../context/AiContext";
 import { SPACE_SHOP_PRODUCTS } from "../../data/spaceShopData";
 
 const CATEGORY_COLORS = {
@@ -106,6 +107,7 @@ function PurchaseRow({ purchase, isNew }) {
 // ── Componente principal ──────────────────────────────────────────────────────
 export default function SpaceShopMonitor() {
   const { state, startMarket, stopMarket, requestMarketReport } = useAgents();
+  const { runAnalysis, isAnalyzed } = useAiAnalysis();
   const { status, purchases, insights, stats, report, reportLoading } = state.market;
   const containerRef = useRef();
   const isActive = status === "ACTIVE" || status === "PROCESSING";
@@ -155,11 +157,14 @@ export default function SpaceShopMonitor() {
 
           {purchases.length >= 10 && (
             <button
-              onClick={requestMarketReport}
+              onClick={() => {
+                requestMarketReport();
+                runAnalysis();
+              }}
               disabled={reportLoading}
               className="px-5 py-2.5 rounded-xl text-[11px] font-black uppercase tracking-widest bg-indigo-500/20 text-indigo-400 border border-indigo-500/40 hover:bg-indigo-500/30 transition-all disabled:opacity-50"
             >
-              {reportLoading ? "⏳ Generando reporte…" : "📊 Generar Reporte IA"}
+              {reportLoading ? "⏳ Generando reporte…" : isAnalyzed ? "✓ Enviado al Dashboard" : "📊 Generar Reporte IA"}
             </button>
           )}
         </div>
